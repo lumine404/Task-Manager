@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #9FAD7A;
+    --primary-color: #808F5E;
+    --accent-color: #C86756;
+    --secondary-color: #F4ECC7;
+}
+
+@font-face {
+    font-family: 'Agrave Pro';
+    src: url('./fonts/AgravePro.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
+}
+.container {
+    background-color: var(--secondary-color);
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+#task-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#task-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+#task-list {
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+h1{
+    color: var(--accent-color);
+    font-family: 'Agrave Pro', sans-serif;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+.input-field[type="submit"] {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: auto;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: auto;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+}
+
