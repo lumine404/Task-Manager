@@ -9,14 +9,17 @@ function renderTasks() {
 
     tasks.forEach(function(task) {
         const taskElement = document.createElement('li');
-        taskElement.textContent = task.title;
+        taskElement.classList.add('task-item');
+        const taskTitle = document.createElement('span');
+        taskTitle.textContent = task.title;
+        taskTitle.classList.add('task-title');
 
         if (task.completed) {
-            taskElement.classList.add('completed');
+            taskTitle.classList.add('completed');
         }
 
         const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
+        deleteButton.textContent = 'x';
         deleteButton.type = 'button';
 
         deleteButton.addEventListener('click', function() {
@@ -40,6 +43,7 @@ function renderTasks() {
         });
 
         taskElement.appendChild(checkbox);
+        taskElement.appendChild(taskTitle);
         taskElement.appendChild(deleteButton);
         taskList.appendChild(taskElement);
     });

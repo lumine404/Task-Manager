@@ -29,19 +29,38 @@ body {
 
 #task-form {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 #task-input {
+    flex: 1;
+    min-width: 0;
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 10px 14px;
+    margin : 0;
     border: 1px solid var(--primary-color);
-    border-radius: 5px;
+    border-radius: 15px;
+    background-color: #FFFFE9;
+    font-family: inherit;
+    font-size: 14px;
 }
 
+.add-button {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #task-list {
     margin-top: 20px;
     list-style-type: none;
@@ -61,16 +80,6 @@ h1{
     border-radius: 5px;
 }
 
-.input-field[type="submit"] {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: auto;
-}
-
 button {
     background-color: var(--accent-color);
     color: white;
@@ -88,4 +97,30 @@ button:hover {
 .completed {
     text-decoration: line-through;
     opacity: 0.6;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.task-title {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.task-item input[type="checkbox"] {
+    margin:0 10px 0 0;
+}
+
+.task-item button {
+    margin-left: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
 }
