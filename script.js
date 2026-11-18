@@ -9,7 +9,11 @@ function renderTasks() {
 
     tasks.forEach(function(task) {
         const taskElement = document.createElement('li');
-        taskElement.textContent = task;
+        taskElement.textContent = task.title;
+
+        if (task.completed) {
+            taskElement.classList.add('completed');
+        }
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
@@ -25,6 +29,17 @@ function renderTasks() {
             renderTasks();
         });
 
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = task.completed;
+
+        checkbox.addEventListener('change', function() {
+            task.completed = checkbox.checked;
+            renderTasks();
+        });
+
+taskElement.appendChild(checkbox);
+
         taskElement.appendChild(deleteButton);
         taskList.appendChild(taskElement);
     });
@@ -39,7 +54,7 @@ taskForm.addEventListener('submit', function(event) {
         return;
     }
 
-    tasks.push(taskText);
+    tasks.push({title: taskText,completed: false});
     renderTasks();
 
     taskInput.value = '';
