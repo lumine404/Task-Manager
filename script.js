@@ -25,7 +25,7 @@ function renderTasks() {
             if (index !== -1) {
                 tasks.splice(index, 1);
             }
-
+            saveData();
             renderTasks();
         });
 
@@ -35,15 +35,26 @@ function renderTasks() {
 
         checkbox.addEventListener('change', function() {
             task.completed = checkbox.checked;
+            saveData();
             renderTasks();
         });
 
-taskElement.appendChild(checkbox);
-
+        taskElement.appendChild(checkbox);
         taskElement.appendChild(deleteButton);
         taskList.appendChild(taskElement);
     });
 }
+
+function saveData() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+function loadData(){
+    tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+}
+
+
+loadData();
+renderTasks();
 
 taskForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -55,6 +66,7 @@ taskForm.addEventListener('submit', function(event) {
     }
 
     tasks.push({title: taskText,completed: false});
+    saveData();
     renderTasks();
 
     taskInput.value = '';
